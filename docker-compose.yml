@@ -1,0 +1,22 @@
+version: '3'
+services:
+  fiasco:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: "fiasco"
+    image: omctf2018/fiasco
+    ports:
+      - 3000:3000
+    volumes:
+      - ./db:/opt/fiasco/:rw
+
+    # links:
+    #   - bspsd-mock
+    # depends_on:
+    #   - bspsd-mock
+
+networks:
+  default:
+    external:
+      name: omctf2018ad_net
